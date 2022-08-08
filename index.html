@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sort Test</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+<div class="mainPage">
+
+    <div class="settingsPanel">
+    <form>
+        <label class="label">Выберите алгоритм</label>
+        <select class="softFlowSelect" onchange="changeSortType()">
+            <option value = "combSort">Сортировка "расчёской"</option>
+            <option value = "cocktailSort">Сортировка пермешиванием</option>
+            <option value = "bubbleSort">Пузырьковая сортировка</option>
+        </select>
+    </form>
+        <label class="label">Настройки</label>
+        <div class="settingsRange">
+            Радиус / Высота / Яркость
+            <input title="Sphere Radius" class="rangeCSS" type="range" min="30" max="150" step="1" value="75" oninput="changeRadius()" id="sphereRadius"/>
+            Количество элементов
+            <input title="Number of elements" class="rangeCSS" type="range" min="30" max="240" step="1" value="125" oninput="calcNewArray()" id="elementsNumb"/>
+            Скорость
+            <input title="Speed" class="rangeCSS" type="range" min="10" max="200" step="5" value="105" oninput="changeSpeed()" id="codeSpeed"/>
+        </div>
+    </div>
+
+    <div class="sortViewsContainer">
+        <div class="sortButtonContainer">
+            <div class="sortButton transition" id = "roundView" onclick="changeSortView('roundView')"></div>
+            <div class="sortButton transition" id = "classicView" onclick="changeSortView('classicView')"></div>
+            <div class="sortButton transition" id = "gradientView" onclick="changeSortView('gradientView')"></div>
+        </div>
+            <div class="buttonContainer">
+                <div class="playButton button transition" id = "firstButton" onmousedown="mouseDown()" onclick="startButton()">
+                    <div class="sprite-play"></div>
+                </div>
+                <div class="resetButton button transition" onclick="calcNewArray()">
+                    <div class="sprite-reset"></div>
+                </div>
+            </div>
+        <div class="sortPlace">
+            <canvas id="canvas" width="900" height="900"></canvas>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script src="sortScript.js"></script>
+
+</html>
+
